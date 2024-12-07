@@ -13,6 +13,10 @@ mainRouter.get("/api-key", (_req, res) => {
     return res.send(`la apikey de mi aplicacion es: ${configuration.apikey}`);
 });
 
+mainRouter.get("/api-username", (_req, res) => {
+    return res.send(`el username de mi aplicacion es: ${configuration.username}`);
+});
+
 mainRouter.get("/validar-rut", (req, res) => {
     const { rut } = req.query as { rut: string };
     let resultado = validarRUT(rut);
@@ -22,7 +26,7 @@ mainRouter.get("/validar-rut", (req, res) => {
 mainRouter.get("/buscar-subcadena", (req, res) => {
     const { cadena, subcadena } = req.query as { cadena: string, subcadena: string };
     const cantidadRepeticiones = contarCoincidenciasEnCadena(cadena, subcadena);
-    return res.send(`La cadeja "${cadena}" tiene ${cantidadRepeticiones} repeticiones de la subcadena "${subcadena}"`);
+    return res.send(`La cadena "${cadena}" tiene ${cantidadRepeticiones} repeticiones de la subcadena "${subcadena}"`);
 });
 
 export default mainRouter;
