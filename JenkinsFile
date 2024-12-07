@@ -49,8 +49,14 @@ pipeline {
                 }
                 stage("quality assurance gate - sonarqube"){
                     steps{
-                        timeout(time:1,unit:"MINUTES"){
-                            waitFotQualityGate abortPipeline: true
+                        script{
+                            timeout(time:1,unit:"MINUTES"){
+                                def qg = waitFotQualityGate()
+                                if(gq.status != "OK"){
+                                    error "Pipeline aborted due to qg failure: ${gq.status}"
+                                }
+                                
+                            }
                         }
                     }
                 }                
