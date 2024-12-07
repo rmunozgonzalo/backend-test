@@ -47,6 +47,13 @@ pipeline {
                         }
                     }
                 }
+                stage("quality assurance gate - sonarqube"){
+                    steps{
+                        timeout(time:1,unit:"MINUTES"){
+                            waitFotQualityGate abortPipeline: true
+                        }
+                    }
+                }                
             }
         }
         stage("integracion nexus"){
