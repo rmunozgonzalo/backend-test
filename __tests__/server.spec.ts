@@ -21,7 +21,7 @@ describe("Baterias pruebas server",()=>{
     test("servidor en endpoint /api-username",async()=>{
         return await request(app)
         .get('/api-username')
-        .expect('el username de mi aplicacion es: default')
+        .expect('el username de mi aplicacion es: example')
         //.expect("Content-Type",/json/)
     })
 
