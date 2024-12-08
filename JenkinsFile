@@ -40,7 +40,7 @@ pipeline {
                 }
             }
             stages{
-                stage("sonarqube"){
+                stage("Quality assurance - sonarqube"){
                     steps{
                         withSonarQubeEnv("sonarqube"){
                             sh "sonar-scanner"

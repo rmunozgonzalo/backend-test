@@ -66,5 +66,8 @@
 	],
 	"include": [
 		"src/**/*.ts"
-, "__test__/lab2-route.test.ts"	]
+		,"__test__/app/cadenas.spec.ts"
+		,"__test__/app/rut.spec.ts"
+		,"__test__/server.spec.ts"
+	]
 }
